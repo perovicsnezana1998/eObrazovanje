@@ -1,0 +1,44 @@
+<div>
+  <h3>Student</h3>
+</div>
+
+<div>
+
+  <form >
+        <div class="form-group">
+          <label for="field1c" class="form-control-label">Card number</label>
+          <input type="text" [(ngModel)]="student.cardNumber" placeholder="Card number" 
+             class="form-control" id="field1c" name="field1">
+        </div>
+
+        <div class="form-group">
+          <label for="field2c" class="form-control-label">First name</label>
+          <input type="text" [(ngModel)]="student.firstName" placeholder="First name" 
+             class="form-control" id="field2c" name="field2">
+        </div>
+       
+        <div class="form-group">
+          <label for="field3c" class="form-control-label">Last name</label>
+          <input type="text" [(ngModel)]="student.lastName" placeholder="Last name" 
+             class="form-control" id="field3c" name="field3">
+        </div>
+   </form>
+  
+
+  <div *ngIf="student.id && enrollments.length > 0"> <!-- Do not show courses when adding a new student-->
+    <div>
+        <h3>Courses</h3>
+    </div>
+    <table class="table table-bordered">
+      <tr *ngFor="let enrollment of enrollments">
+        <td>
+          {{enrollment.course.name}}
+        </td>
+      </tr>
+    </table>
+  </div> 
+</div>
+<div>
+  <button class="btn btn-primary" (click)="goBack()">Cancel</button>
+  <button class="btn btn-primary" (click)="save()">OK</button>
+</div> 

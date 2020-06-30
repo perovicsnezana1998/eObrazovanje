@@ -1,0 +1,28 @@
+<div>
+  <h3>Courses</h3>
+</div>
+<table class="table table-bordered">
+  <tr>
+    <th>Name</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let course of courses">
+    <td>
+      {{course.name}}
+    </td>
+    <td>
+      <button type="button" class="btn btn-primary" aria-label="Edit" (click)="gotoEdit(course)">
+        <span class="fa fa-edit" aria-hidden="true"></span>
+      </button>
+
+      <button type="button" class="btn btn-primary" aria-label="Delete" (click)="deleteCourse(course.id)">
+        <span class="fa fa-remove" aria-hidden="true"></span>
+      </button>
+    </td>
+  </tr>
+</table>
+<div class="right">
+  <button type="button" class="btn btn-primary" aria-label="Add" (click)="gotoAdd()">
+    <span class="fa fa-plus" aria-hidden="true"></span>
+  </button>
+</div> 

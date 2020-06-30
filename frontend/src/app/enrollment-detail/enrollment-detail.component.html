@@ -1,0 +1,37 @@
+<div>
+  <h3>Enroll students in course {{enrollment.course.name}} </h3>
+</div>
+<div>
+
+    <div class="form-group">
+      <select class="form-control" [(ngModel)]="enrollment.student">
+            <option *ngFor="let s of students" [ngValue]="s">{{s.firstName}} {{s.lastName}} {{s.cardNumber}}</option>
+          </select>
+    </div>
+
+    <div class="form-group">
+      <div class="input-group">
+        <input class="form-control" placeholder="yyyy-mm-dd" name="dp1" [(ngModel)]="ngbStartDate" 
+          ngbDatepicker #d1="ngbDatepicker">
+        <button class="input-group-addon" (click)="d1.toggle()" type="button">
+        <i class="fa fa-calendar" style="width: 1.2rem; height: 1rem; cursor: pointer;"> </i> 
+      </button>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="input-group">
+        <input class="form-control" placeholder="yyyy-mm-dd" name="dp2" [(ngModel)]="ngbEndDate" 
+          ngbDatepicker #d2="ngbDatepicker">
+        <button class="input-group-addon" (click)="d2.toggle()" type="button">
+       <i class="fa fa-calendar" style="width: 1.2rem; height: 1rem; cursor: pointer;"> </i> 
+      </button>
+      </div>
+    </div> 
+
+
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" type="button" (click)="add()">OK</button>
+  <button class="btn btn-primary" type="button" (click)="goBack()">Cancel</button>
+</div> 

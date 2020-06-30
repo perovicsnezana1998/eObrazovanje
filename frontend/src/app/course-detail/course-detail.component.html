@@ -1,0 +1,43 @@
+<div>
+  <h3>Course</h3>
+</div>
+
+<div>
+
+
+
+  <form>
+        <div class="form-group">
+          <label for="field1c" class="form-control-label">Name</label>
+          <input type="text" [(ngModel)]="course.name" placeholder="Name" 
+             class="form-control" id="field1c" name="field1">
+        </div>
+
+   </form>
+
+  <div *ngIf="course.id">
+    <div>
+      <h3>Students</h3>
+      <button type="button" class="btn btn-primary" aria-label="Add" (click)="gotoAddEnrollment()">
+        <span class="fa fa-plus" aria-hidden="true"></span>
+      </button>
+    </div>
+    <table class="table table-bordered">
+      <tr *ngFor="let enrollment of enrollments">
+        <td>
+          {{enrollment.student.firstName}} {{enrollment.student.lastName}} {{enrollment.student.cardNumber}}
+           [Since {{enrollment.startDate | date: 'dd.MM.yyyy'}} until {{enrollment.endDate | date: 'dd.MM.yyyy'}}]
+        </td>
+        <td>
+          <button type="button" class="btn btn-primary right" aria-label="Delete" (click)="deleteEnrollment(enrollment.id)">
+            <span class="fa fa-remove" aria-hidden="true"></span>
+          </button>
+        </td>
+      </tr>
+    </table>   
+  </div>
+</div>
+<div>
+  <button class="btn btn-primary" (click)="save()">OK</button>
+  <button class="btn btn-primary" (click)="goBack()">Cancel</button>
+</div>

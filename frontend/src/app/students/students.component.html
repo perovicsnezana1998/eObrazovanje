@@ -1,0 +1,36 @@
+<div>
+  <h3>Students</h3>
+</div>
+<table class="table table-bordered">
+  <tr>
+    <th>Card number</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let student of students">
+    <td>
+      {{student.cardNumber}}
+    </td>
+    <td>
+      {{student.firstName}}
+    </td>
+    <td>
+      {{student.lastName}}
+    </td>
+    <td>
+      <button type="button" class="btn btn-primary" aria-label="Edit" (click)="gotoEdit(student)">
+        <span class="fa fa-edit" aria-hidden="true"></span>
+      </button>
+
+      <button type="button" class="btn btn-primary" aria-label="Delete" (click)="deleteStudent(student.id)">
+        <span class="fa fa-remove" aria-hidden="true"></span>
+      </button>
+    </td>
+  </tr>
+</table>
+<div class="right">
+  <button type="button" class="btn btn-primary" aria-label="Add" (click)="gotoAdd()">
+    <span class="fa fa-plus" aria-hidden="true"></span>
+  </button>
+</div> 
